@@ -91,15 +91,5 @@ jobs:
           echo "Checking file permissions..."
           ssh ${SSH_USER}@${SSH_HOST} "stat ${TARGET_PATH}/ | grep -E 'Access|Uid|Gid'"
 
-      - name: 'Optional: restart PHP-FPM / webserver'
-        if: ${{ secrets.DEPLOY_RESTART_CMD != '' }}
-        env:
-          SSH_USER: ${{ secrets.SSH_USER }}
-          SSH_HOST: ${{ secrets.SSH_HOST }}
-          RESTART_CMD: ${{ secrets.DEPLOY_RESTART_CMD }}
-        run: |
-          echo "Running restart command on remote host"
-          ssh ${SSH_USER}@${SSH_HOST} "$RESTART_CMD"
-
       - name: Done
         run: echo "✓ Deployment finished successfully"
