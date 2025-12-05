@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tautan ID - Platform marketplace lokal Indonesia untuk supplier dan buyer. Produk lokal akurat dan efektif.">
+    <meta name="keywords" content="marketplace, supplier, buyer, Indonesia, lokal, produk">
+    <meta name="author" content="Tautan ID Team">
+    <meta property="og:title" content="Tautan ID - Marketplace Lokal Indonesia">
+    <meta property="og:description" content="Buka website kami, daftar, masukkan data anda, cari keperluan anda lalu transaksi.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/assets/logo.png">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <!-- Sentry Error Tracking -->
+    <script src="https://browser.sentry-cdn.com/7.80.0/bundle.min.js" integrity="sha384-..." crossorigin="anonymous"></script>
+    <script>
+        Sentry.init({
+            dsn: "YOUR_SENTRY_DSN",
+            environment: "production"
+        });
+    </script>
+    
+    <title>Tautan ID - Platform Marketplace Lokal Indonesia</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="navbar-brand">
+                    <img src="/assets/logo.png" alt="Tautan ID Logo" class="logo" width="40" height="40">
+                    <span class="brand-text">Tautan ID</span>
+                </div>
+                
+                <ul class="navbar-menu">
+                    <li><a href="#home" class="nav-link">Beranda</a></li>
+                    <li><a href="#features" class="nav-link">Fitur</a></li>
+                    <li><a href="/benefits" class="nav-link">Membership</a></li>
+                    <li><a href="#contact" class="nav-link">Kontak</a></li>
+                </ul>
+                
+                <div class="navbar-auth">
+                    <button id="loginBtn" class="btn btn-outline-primary">Masuk</button>
+                    <button id="registerBtn" class="btn btn-primary">Daftar</button>
+                </div>
+                
+                <button class="navbar-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Selamat Datang di Tautan ID</h1>
+                <p class="hero-subtitle">Platform Marketplace Lokal Indonesia untuk Supplier dan Buyer</p>
+                <p class="hero-tagline">
+                    "Buka website kami, daftar, masukkan data anda, cari keperluan anda lalu transaksi. 
+                    Produk lokal mahal, disini carinya akurat dan efektif."
+                </p>
+                
+                <div class="hero-cta">
+                    <button class="btn btn-large btn-primary">Mulai Sekarang</button>
+                    <button class="btn btn-large btn-outline-secondary">Pelajari Lebih</button>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>10K+</h3>
+                        <p>Supplier Terdaftar</p>
+                    </div>
+                    <div class="stat">
+                        <h3>50K+</h3>
+                        <p>Buyer Aktif</p>
+                    </div>
+                    <div class="stat">
+                        <h3>1M+</h3>
+                        <p>Produk Tersedia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Fitur Unggulan</h2>
+            
+            <div class="features-grid">
+                <!-- Feature 1: AI Matching -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path d="M24 2C12.95 2 4 10.95 4 22s8.95 20 20 20 20-8.95 20-20S35.05 2 24 2z" 
+                                  stroke="#28a745" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3>AI Expert Matching</h3>
+                    <p>Teknologi AI terdepan untuk mencocokkan kebutuhan Anda dengan supplier terbaik secara akurat dan efisien.</p>
+                </div>
+
+                <!-- Feature 2: Secure Payment -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="6" y="12" width="36" height="28" rx="2" 
+                                  stroke="#ffc107" stroke-width="2" fill="none"/>
+                            <path d="M14 18h20" stroke="#ffc107" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Pembayaran Aman</h3>
+                    <p>Enkripsi tingkat bank dan multiple payment options untuk keamanan transaksi Anda.</p>
+                </div>
+
+                <!-- Feature 3: Real-time Chat -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path d="M8 10h32c2.2 0 4 1.8 4 4v24c0 2.2-1.8 4-4 4H12l-4 4v-4H8c-2.2 0-4-1.8-4-4V14c0-2.2 1.8-4 4-4z" 
+                                  stroke="#ffd700" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3>Chat Real-time</h3>
+                    <p>Komunikasi langsung dengan supplier untuk negosiasi dan konsultasi produk.</p>
+                </div>
+
+                <!-- Feature 4: Membership Benefits -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="16" r="8" stroke="#28a745" stroke-width="2" fill="none"/>
+                            <path d="M8 40c0-8 6.3-14 16-14s16 6 16 14" 
+                                  stroke="#28a745" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3>Membership Tier</h3>
+                    <p>Upgrade ke Premium untuk akses lebih banyak supplier, diskon khusus, dan AI matching.</p>
+                </div>
+
+                <!-- Feature 5: Affiliate Program -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path d="M24 4l6.5 12.5H44l-11 8 4.3 13.5L24 30l-13.3 8 4.3-13.5L4 16.5h13.5L24 4z" 
+                                  stroke="#ffc107" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3>Program Afiliasi</h3>
+                    <p>Dapatkan komisi dan poin reward untuk setiap referral yang berhasil.</p>
+                </div>
+
+                <!-- Feature 6: Analytics Dashboard -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="8" y="30" width="6" height="10" fill="#ffd700" stroke="#ffd700" stroke-width="2"/>
+                            <rect x="20" y="18" width="6" height="22" fill="#ffc107" stroke="#ffc107" stroke-width="2"/>
+                            <rect x="32" y="6" width="6" height="34" fill="#28a745" stroke="#28a745" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Dashboard Analytics</h3>
+                    <p>Pantau performa bisnis Anda dengan dashboard analytics real-time yang komprehensif.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Role Selection Section -->
+    <section class="role-selection">
+        <div class="container">
+            <h2 class="section-title">Pilih Peran Anda</h2>
+            <p class="section-subtitle">Tautan ID melayani baik supplier maupun buyer</p>
+            
+            <div class="role-cards">
+                <!-- Supplier Role -->
+                <div class="role-card">
+                    <div class="role-icon supplier-icon">
+                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                            <rect x="8" y="20" width="44" height="32" rx="2" 
+                                  stroke="#28a745" stroke-width="2.5" fill="none"/>
+                            <path d="M30 8l-18 12h36l-18-12z" stroke="#28a745" stroke-width="2.5" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3>Saya Supplier</h3>
+                    <p>Jual produk Anda ke ribuan pembeli yang mencari solusi terbaik</p>
+                    <ul class="role-benefits">
+                        <li>✓ Jangkauan pasar luas</li>
+                        <li>✓ Sistem pembayaran aman</li>
+                        <li>✓ Dashboard penjualan</li>
+                        <li>✓ Analitik mendalam</li>
+                    </ul>
+                    <button class="btn btn-primary btn-block register-supplier">Daftar sebagai Supplier</button>
+                </div>
+
+                <!-- Buyer Role -->
+                <div class="role-card">
+                    <div class="role-icon buyer-icon">
+                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                            <circle cx="24" cy="16" r="6" stroke="#ffc107" stroke-width="2.5" fill="none"/>
+                            <path d="M12 26h24" stroke="#ffc107" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M36 36l-8-4-8 4v8h16v-8z" stroke="#ffc107" stroke-width="2.5" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3>Saya Buyer</h3>
+                    <p>Temukan produk berkualitas dari supplier terpercaya di seluruh Indonesia</p>
+                    <ul class="role-benefits">
+                        <li>✓ Katalog produk luas</li>
+                        <li>✓ Harga kompetitif</li>
+                        <li>✓ Belanja mudah</li>
+                        <li>✓ Perlindungan pembeli</li>
+                    </ul>
+                    <button class="btn btn-outline-primary btn-block register-buyer">Daftar sebagai Buyer</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Siap Memulai?</h2>
+                <p>Bergabunglah dengan ribuan supplier dan buyer yang telah mempercayai Tautan ID</p>
+                <button class="btn btn-large btn-gold">Mulai Sekarang</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Tautan ID</h4>
+                    <ul>
+                        <li><a href="/">Beranda</a></li>
+                        <li><a href="/about">Tentang Kami</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/terms-of-service">Terms of Service</a></li>
+                        <li><a href="/privacy-policy">Privacy Policy</a></li>
+                        <li><a href="/refund-policy">Refund Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/contact">Hubungi Kami</a></li>
+                        <li><a href="/help">Bantuan</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Ikuti Kami</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tautan ID. Semua hak dilindungi. Made with ❤️ in Indonesia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content modal-sm">
+            <button class="modal-close">&times;</button>
+            <h2>Masuk</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Masuk</button>
+                <p class="form-footer">Belum punya akun? <a href="#" id="switchToRegister">Daftar di sini</a></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content modal-sm">
+            <button class="modal-close">&times;</button>
+            <h2>Daftar</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="regFullName">Nama Lengkap</label>
+                    <input type="text" id="regFullName" name="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPhone">Nomor Telepon</label>
+                    <input type="tel" id="regPhone" name="phoneNumber" placeholder="0812345678" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="regRole">Saya adalah</label>
+                    <select id="regRole" name="role" required>
+                        <option value="">Pilih...</option>
+                        <option value="buyer">Buyer</option>
+                        <option value="supplier">Supplier</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Daftar</button>
+                <p class="form-footer">Sudah punya akun? <a href="#" id="switchToLogin">Masuk di sini</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/app.js"></script>
+</body>
+</html>

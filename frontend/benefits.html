@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tautan ID Membership Tiers - Pilih paket yang sesuai dengan kebutuhan Anda">
+    <meta name="keywords" content="membership, premium, pricing, benefits">
+    <title>Membership Tiers - Tautan ID</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        .pricing-table {
+            margin: var(--spacing-xl) 0;
+            overflow-x: auto;
+        }
+        
+        .pricing-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            box-shadow: var(--shadow-lg);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+        }
+        
+        .pricing-table th,
+        .pricing-table td {
+            padding: var(--spacing-lg);
+            text-align: center;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .pricing-table th {
+            background: var(--gradient-primary);
+            color: var(--white);
+            font-weight: 700;
+        }
+        
+        .pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .pricing-table td:first-child {
+            text-align: left;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .pricing-table .feature-check {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+        
+        .pricing-table .feature-cross {
+            color: #dc3545;
+            font-size: 1.2em;
+        }
+        
+        .pricing-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+            margin: var(--spacing-xl) 0;
+        }
+        
+        .pricing-card {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+            border: 2px solid var(--light-gray);
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--secondary);
+            box-shadow: var(--shadow-xl);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card:hover {
+            box-shadow: var(--shadow-xl);
+            transform: translateY(-5px);
+        }
+        
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+        
+        .badge-featured {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--secondary);
+            color: var(--dark);
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--border-radius-full);
+            font-weight: 700;
+            font-size: var(--font-size-sm);
+        }
+        
+        .price-amount {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: var(--spacing-md) 0 var(--spacing-xs);
+        }
+        
+        .price-period {
+            color: var(--dark-gray);
+            font-size: var(--font-size-sm);
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin: var(--spacing-lg) 0;
+            text-align: left;
+        }
+        
+        .pricing-features li {
+            padding: var(--spacing-sm) 0;
+            color: var(--dark);
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .pricing-features li:before {
+            content: "✓";
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+        
+        .pricing-features li.unavailable {
+            color: var(--dark-gray);
+            opacity: 0.6;
+        }
+        
+        .pricing-features li.unavailable:before {
+            content: "✗";
+            color: #dc3545;
+        }
+        
+        .upgrade-btn {
+            margin-top: var(--spacing-lg);
+            width: 100%;
+        }
+        
+        .comparison-section {
+            margin-top: var(--spacing-xxl);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="navbar-brand">
+                    <img src="/assets/logo.png" alt="Tautan ID Logo" class="logo" width="40" height="40">
+                    <span class="brand-text">Tautan ID</span>
+                </div>
+                
+                <ul class="navbar-menu">
+                    <li><a href="/" class="nav-link">Beranda</a></li>
+                    <li><a href="/benefits" class="nav-link">Membership</a></li>
+                    <li><a href="#" class="nav-link">Kontak</a></li>
+                </ul>
+                
+                <div class="navbar-auth">
+                    <button id="loginBtn" class="btn btn-outline-primary">Masuk</button>
+                    <button id="registerBtn" class="btn btn-primary">Daftar</button>
+                </div>
+                
+                <button class="navbar-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh;">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Pilih Membership Terbaik Untuk Anda</h1>
+                <p class="hero-subtitle">Dapatkan akses ke fitur-fitur unggulan dan nikmati keuntungan maksimal</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title">Paket Membership</h2>
+            
+            <!-- Pricing Cards -->
+            <div class="pricing-card-grid">
+                <!-- Basic Plan -->
+                <div class="pricing-card">
+                    <h3>Basic</h3>
+                    <div class="price-amount">Gratis</div>
+                    <p class="price-period">Selamanya gratis</p>
+                    
+                    <ul class="pricing-features">
+                        <li>Akses 10 data supplier</li>
+                        <li>Email notifikasi dasar</li>
+                        <li>Chat dengan supplier</li>
+                        <li>Riwayat pembelian</li>
+                        <li class="unavailable">Diskon eksklusif</li>
+                        <li class="unavailable">AI Expert Matching</li>
+                        <li class="unavailable">Akses prioritas</li>
+                    </ul>
+                    
+                    <button class="btn btn-outline-primary upgrade-btn" onclick="currentPlan('Basic')">
+                        Paket Saat Ini
+                    </button>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="pricing-card featured">
+                    <div class="badge-featured">PALING POPULER</div>
+                    <h3>Premium</h3>
+                    <div class="price-amount">Rp 99.000</div>
+                    <p class="price-period">per bulan / bisa dibatalkan</p>
+                    
+                    <ul class="pricing-features">
+                        <li>Akses 50 data supplier</li>
+                        <li>Email notifikasi advanced</li>
+                        <li>Chat prioritas dengan supplier</li>
+                        <li>Riwayat pembelian unlimited</li>
+                        <li>Diskon 10% untuk semua produk</li>
+                        <li>AI Expert Matching dasar</li>
+                        <li>Akses prioritas ke listing baru</li>
+                    </ul>
+                    
+                    <button class="btn btn-primary upgrade-btn" onclick="upgradePlan('Premium', 99000)">
+                        Upgrade ke Premium
+                    </button>
+                </div>
+
+                <!-- Premium+ Plan -->
+                <div class="pricing-card">
+                    <h3>Premium+</h3>
+                    <div class="price-amount">Rp 299.000</div>
+                    <p class="price-period">per bulan / bisa dibatalkan</p>
+                    
+                    <ul class="pricing-features">
+                        <li>Akses semua data supplier</li>
+                        <li>Email notifikasi penuh</li>
+                        <li>Chat VIP dengan supplier</li>
+                        <li>Riwayat pembelian unlimited</li>
+                        <li>Diskon 25% untuk semua produk</li>
+                        <li>AI Expert Matching advanced</li>
+                        <li>Akses prioritas + customer support 24/7</li>
+                    </ul>
+                    
+                    <button class="btn btn-gold upgrade-btn" onclick="upgradePlan('Premium+', 299000)">
+                        Upgrade ke Premium+
+                    </button>
+                </div>
+            </div>
+
+            <!-- Comparison Section -->
+            <div class="comparison-section">
+                <h2 class="section-title">Perbandingan Lengkap</h2>
+                
+                <div class="pricing-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fitur</th>
+                                <th>Basic</th>
+                                <th>Premium</th>
+                                <th>Premium+</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Akses Supplier</td>
+                                <td><span class="feature-check">10</span></td>
+                                <td><span class="feature-check">50</span></td>
+                                <td><span class="feature-check">Semua</span></td>
+                            </tr>
+                            <tr>
+                                <td>Email Notifikasi</td>
+                                <td><span class="feature-check">✓</span></td>
+                                <td><span class="feature-check">✓</span></td>
+                                <td><span class="feature-check">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td>Diskon Produk</td>
+                                <td><span class="feature-cross">✗</span></td>
+                                <td><span class="feature-check">10%</span></td>
+                                <td><span class="feature-check">25%</span></td>
+                            </tr>
+                            <tr>
+                                <td>AI Expert Matching</td>
+                                <td><span class="feature-cross">✗</span></td>
+                                <td><span class="feature-check">Dasar</span></td>
+                                <td><span class="feature-check">Advanced</span></td>
+                            </tr>
+                            <tr>
+                                <td>Chat Priority</td>
+                                <td><span class="feature-cross">✗</span></td>
+                                <td><span class="feature-check">✓</span></td>
+                                <td><span class="feature-check">VIP</span></td>
+                            </tr>
+                            <tr>
+                                <td>Customer Support</td>
+                                <td><span class="feature-cross">Email</span></td>
+                                <td><span class="feature-check">Email</span></td>
+                                <td><span class="feature-check">24/7</span></td>
+                            </tr>
+                            <tr>
+                                <td>Akses Fitur Baru</td>
+                                <td><span class="feature-cross">✗</span></td>
+                                <td><span class="feature-check">✓</span></td>
+                                <td><span class="feature-check">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td>Harga</td>
+                                <td><span class="feature-check">Gratis</span></td>
+                                <td><span class="feature-check">Rp 99K/bln</span></td>
+                                <td><span class="feature-check">Rp 299K/bln</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="comparison-section">
+                <h2 class="section-title">Pertanyaan Umum</h2>
+                
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div style="margin-bottom: var(--spacing-lg); padding: var(--spacing-md); background: var(--light); border-radius: var(--border-radius);">
+                        <h4 style="color: var(--primary); margin-bottom: var(--spacing-sm);">Apakah saya bisa membatalkan kapan saja?</h4>
+                        <p>Ya, Anda bisa membatalkan membership kapan saja tanpa penalti. Paket akan berakhir pada akhir periode billing Anda.</p>
+                    </div>
+                    
+                    <div style="margin-bottom: var(--spacing-lg); padding: var(--spacing-md); background: var(--light); border-radius: var(--border-radius);">
+                        <h4 style="color: var(--primary); margin-bottom: var(--spacing-sm);">Bagaimana cara upgrade ke paket yang lebih tinggi?</h4>
+                        <p>Anda bisa upgrade kapan saja dari halaman membership. Perbedaan harga akan ditagih secara proporsional.</p>
+                    </div>
+                    
+                    <div style="margin-bottom: var(--spacing-lg); padding: var(--spacing-md); background: var(--light); border-radius: var(--border-radius);">
+                        <h4 style="color: var(--primary); margin-bottom: var(--spacing-sm);">Apa itu AI Expert Matching?</h4>
+                        <p>AI Expert Matching menggunakan teknologi AI terdepan untuk mencocokkan kebutuhan Anda dengan supplier terbaik secara otomatis dan akurat.</p>
+                    </div>
+                    
+                    <div style="margin-bottom: var(--spacing-lg); padding: var(--spacing-md); background: var(--light); border-radius: var(--border-radius);">
+                        <h4 style="color: var(--primary); margin-bottom: var(--spacing-sm);">Adakah diskon untuk komitmen jangka panjang?</h4>
+                        <p>Ya, hubungi tim kami untuk informasi tentang paket tahunan dengan diskon khusus untuk pengguna setia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Siap Upgrade?</h2>
+                <p>Mulai dengan paket gratis dan upgrade kapan saja sesuai kebutuhan Anda</p>
+                <button class="btn btn-large btn-gold" onclick="scrollToSection('pricing')">
+                    Pilih Paket Sekarang
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Tautan ID</h4>
+                    <ul>
+                        <li><a href="/">Beranda</a></li>
+                        <li><a href="/benefits">Membership</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/terms-of-service">Terms of Service</a></li>
+                        <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/contact">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tautan ID. Semua hak dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/app.js"></script>
+    <script>
+        function upgradePlan(plan, amount) {
+            TautanID.trackEvent('upgrade_plan_click', {
+                plan: plan,
+                amount: amount
+            });
+            
+            // Check if user is logged in
+            const user = TautanID.getUser();
+            if (!user) {
+                TautanID.showNotification('Silakan login untuk upgrade');
+                TautanID.openModal('loginModal');
+                return;
+            }
+            
+            // TODO: Integrate payment gateway (Stripe, Midtrans, etc)
+            TautanID.showNotification(`Upgrading ke ${plan}...`);
+            console.log(`Payment processing untuk ${plan}: Rp ${amount.toLocaleString('id-ID')}`);
+        }
+        
+        function currentPlan(plan) {
+            TautanID.showNotification(`Anda sudah menggunakan paket ${plan}`);
+        }
+        
+        function scrollToSection(sectionClass) {
+            const section = document.querySelector(`.${sectionClass}`);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
