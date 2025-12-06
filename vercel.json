@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "name": "tautan-frontend",
+  "public": "frontend",
+  "buildCommand": "echo 'Static frontend - no build needed'",
+  "outputDirectory": "frontend",
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}

@@ -8,23 +8,27 @@
 
 :root {
     /* Colors */
-    --primary: #28a745;
-    --primary-dark: #1e7e34;
-    --primary-light: #34c759;
+    /* Primary brand color: Lime green (dominant) */
+    --primary: #32CD32; /* LimeGreen */
+    --primary-dark: #2aa12a;
+    --primary-light: #66dd66;
     --secondary: #ffc107;
     --secondary-dark: #e0a800;
     --accent: #ffd700;
     --accent-dark: #daa520;
     --white: #ffffff;
-    --light: #f8f9fa;
+    /* New global page background (cream) and adjusted neutrals */
+    --page-bg: #f7efe6; /* soft cream */
+    --light: #fbfaf8;
     --light-gray: #e9ecef;
-    --dark: #212529;
-    --dark-gray: #495057;
+    --dark: #111111;
+    --dark-gray: #4b4b4b;
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+    --gradient-primary: linear-gradient(135deg, #32CD32 0%, #2aa12a 100%);
     --gradient-secondary: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
-    --gradient-hero: linear-gradient(180deg, rgba(40, 167, 69, 0.95) 0%, rgba(30, 126, 52, 0.95) 100%);
+    /* remove bold green hero gradient in favor of clean cream hero */
+    --gradient-hero: linear-gradient(180deg, rgba(247, 239, 230, 1) 0%, rgba(247, 239, 230, 1) 100%);
     
     /* Spacing */
     --spacing-xs: 0.5rem;
@@ -74,7 +78,7 @@ body {
     font-size: var(--font-size-base);
     line-height: 1.6;
     color: var(--dark);
-    background-color: var(--white);
+    background-color: var(--page-bg);
 }
 
 /* ========== TYPOGRAPHY ========== */
@@ -138,8 +142,9 @@ a:hover {
 /* ========== NAVBAR ========== */
 
 .navbar {
-    background-color: var(--white);
-    border-bottom: 3px solid var(--primary);
+    /* keep navbar matching page background and low-contrast border */
+    background-color: var(--page-bg);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -165,11 +170,9 @@ a:hover {
 .logo {
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, #28a745 0%, #ffc107 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border-radius: 8px;
+    display: inline-block;
+    object-fit: cover;
 }
 
 .navbar-menu {
@@ -306,39 +309,33 @@ a:hover {
 }
 
 .hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--gradient-hero);
-    z-index: -1;
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    /* hide the previous bold banner/gradient to create a clean cream landing */
+    display: none;
 }
 
 .hero-content {
     text-align: center;
-    color: var(--white);
+    color: var(--dark);
 }
 
 .hero-title {
     font-size: clamp(2rem, 8vw, 3.5rem);
-    color: var(--white);
+    color: var(--dark);
     margin-bottom: var(--spacing-md);
     animation: slideInDown 0.8s ease-out;
 }
 
 .hero-subtitle {
     font-size: var(--font-size-xl);
-    color: rgba(255, 255, 255, 0.95);
+    color: var(--dark-gray);
     margin-bottom: var(--spacing-md);
     animation: slideInUp 0.8s ease-out 0.2s both;
 }
 
 .hero-tagline {
     font-size: var(--font-size-lg);
-    color: var(--accent);
-    max-width: 600px;
+    color: var(--dark-gray);
+    max-width: 700px;
     margin: var(--spacing-xl) auto;
     font-style: italic;
     animation: slideInUp 0.8s ease-out 0.4s both;
@@ -359,7 +356,7 @@ a:hover {
     gap: var(--spacing-lg);
     margin-top: var(--spacing-xxl);
     padding-top: var(--spacing-xxl);
-    border-top: 2px solid rgba(255, 255, 255, 0.2);
+    border-top: 2px solid rgba(0, 0, 0, 0.06);
     animation: slideInUp 0.8s ease-out 0.8s both;
 }
 
@@ -369,12 +366,12 @@ a:hover {
 
 .stat h3 {
     font-size: 2.5rem;
-    color: var(--accent);
+    color: var(--primary);
     margin-bottom: var(--spacing-xs);
 }
 
 .stat p {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--dark-gray);
     margin: 0;
 }
 
@@ -382,7 +379,8 @@ a:hover {
 
 .features {
     padding: var(--spacing-xxl) 0;
-    background-color: var(--light);
+    /* blend into cream background for a calm look */
+    background-color: transparent;
 }
 
 .features-grid {
@@ -404,7 +402,7 @@ a:hover {
 .feature-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-xl);
-    border-top-color: var(--secondary);
+    border-top-color: var(--primary);
 }
 
 .feature-icon {
@@ -426,7 +424,7 @@ a:hover {
 
 .role-selection {
     padding: var(--spacing-xxl) 0;
-    background: linear-gradient(135deg, rgba(40, 167, 69, 0.05) 0%, rgba(255, 193, 7, 0.05) 100%);
+    background: transparent;
 }
 
 .role-cards {
@@ -463,7 +461,7 @@ a:hover {
 }
 
 .supplier-icon {
-    background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, rgba(40, 167, 69, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(50, 205, 50, 0.10) 0%, rgba(50, 205, 50, 0.05) 100%);
 }
 
 .buyer-icon {
@@ -496,6 +494,7 @@ a:hover {
 /* ========== CTA SECTION ========== */
 
 .cta-section {
+    /* make CTA prominent using primary lime gradient */
     background: var(--gradient-primary);
     color: var(--white);
     padding: var(--spacing-xxl) 0;
@@ -504,7 +503,7 @@ a:hover {
 
 .cta-content h2 {
     font-size: var(--font-size-2xl);
-    color: var(--accent);
+    color: var(--white);
     margin-bottom: var(--spacing-md);
 }
 
@@ -517,9 +516,17 @@ a:hover {
 /* ========== FOOTER ========== */
 
 .footer {
+    /* keep footer darker to provide contrast and readable white text */
     background-color: var(--dark);
     color: var(--white);
     padding: var(--spacing-xl) 0 var(--spacing-lg);
+}
+
+/* Make images slightly warmer/desaturated to fit the cream palette */
+img {
+    max-width: 100%;
+    height: auto;
+    filter: saturate(0.95) contrast(0.98) sepia(0.03);
 }
 
 .footer-content {
@@ -558,6 +565,17 @@ a:hover {
 .social-link {
     color: var(--primary);
     font-weight: 600;
+}
+
+/* Ensure elements that previously used strong green now follow the new primary */
+.navbar-toggle span,
+.nav-link:hover,
+.section-title,
+.feature-card h3,
+.role-card h3,
+.modal-content h2,
+.form-footer a {
+    color: var(--primary);
 }
 
 .footer-bottom {
@@ -599,7 +617,7 @@ a:hover {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+    box-shadow: 0 0 0 3px rgba(50, 205, 50, 0.10);
 }
 
 .form-footer {
