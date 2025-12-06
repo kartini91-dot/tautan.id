@@ -522,7 +522,83 @@ document.addEventListener('DOMContentLoaded', () => {
             trackEvent('hero_cta_click');
         });
     });
+    
+    // FAQ toggle
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const faqItem = question.closest('.faq-item');
+            faqItem.classList.toggle('active');
+        });
+    });
+    
+    // Contact form
+    const contactForm = document.querySelector('.contact-form form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            
+            try {
+                const result = await apiCall('POST', '/api/contact', {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    subject: formData.get('subject'),
+                    message: formData.get('message')
+                });
+                
+                showNotification('Pesan Anda telah dikirim', 'success');
+                contactForm.reset();
+                trackEvent('contact_form_submit');
+            } catch (error) {
+                showNotification('Gagal mengirim pesan', 'error');
+            }
+        });
+    }
 });
+
+/**
+ * Show specific section (for legal pages)
+ */
+function showSection(sectionId) {
+    // Hide all legal sections
+    const legalSections = document.querySelectorAll('.legal-section');
+    legalSections.forEach(section => {
+        section.style.display = 'none';
+    });
+    
+    // Hide other main sections
+    const mainSections = document.querySelectorAll(
+        '#home, #features, #membership, #about, #faq, #contact'
+    );
+    mainSections.forEach(section => {
+        section.style.display = 'none';
+    });
+    
+    // Show selected legal section
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+}
+
+/**
+ * Show main page (hide legal sections)
+ */
+function showMainPage() {
+    const legalSections = document.querySelectorAll('.legal-section');
+    legalSections.forEach(section => {
+        section.style.display = 'none';
+    });
+    
+    const mainSections = document.querySelectorAll(
+        '#home, #features, #membership, #about, #faq, #contact'
+    );
+    mainSections.forEach(section => {
+        section.style.display = 'block';
+    });
+}
 
 /**
  * Export functions untuk global access
@@ -544,5 +620,7 @@ window.TautanID = {
     trackPurchase,
     formatCurrency,
     getUser,
-    getToken
+    getToken,
+    showSection,
+    showMainPage
 };
