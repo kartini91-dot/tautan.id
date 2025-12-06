@@ -306,6 +306,7 @@ a:hover {
     display: flex;
     align-items: center;
     overflow: hidden;
+    background: var(--gradient-primary);
 }
 
 .hero-background {
@@ -315,26 +316,26 @@ a:hover {
 
 .hero-content {
     text-align: center;
-    color: var(--dark);
+    color: var(--white);
 }
 
 .hero-title {
     font-size: clamp(2rem, 8vw, 3.5rem);
-    color: var(--dark);
+    color: var(--white);
     margin-bottom: var(--spacing-md);
     animation: slideInDown 0.8s ease-out;
 }
 
 .hero-subtitle {
     font-size: var(--font-size-xl);
-    color: var(--dark-gray);
+    color: rgba(255, 255, 255, 0.95);
     margin-bottom: var(--spacing-md);
     animation: slideInUp 0.8s ease-out 0.2s both;
 }
 
 .hero-tagline {
     font-size: var(--font-size-lg);
-    color: var(--dark-gray);
+    color: rgba(255, 255, 255, 0.90);
     max-width: 700px;
     margin: var(--spacing-xl) auto;
     font-style: italic;
@@ -356,7 +357,7 @@ a:hover {
     gap: var(--spacing-lg);
     margin-top: var(--spacing-xxl);
     padding-top: var(--spacing-xxl);
-    border-top: 2px solid rgba(0, 0, 0, 0.06);
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
     animation: slideInUp 0.8s ease-out 0.8s both;
 }
 
@@ -366,12 +367,12 @@ a:hover {
 
 .stat h3 {
     font-size: 2.5rem;
-    color: var(--primary);
+    color: var(--white);
     margin-bottom: var(--spacing-xs);
 }
 
 .stat p {
-    color: var(--dark-gray);
+    color: rgba(255, 255, 255, 0.90);
     margin: 0;
 }
 
